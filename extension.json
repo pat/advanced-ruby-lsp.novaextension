@@ -1,0 +1,82 @@
+{
+    "identifier": "com.freelancing-gods.ruby-lsp",
+    "name": "Advanced Ruby LSP",
+    "organization": "Freelancing Gods",
+    "description": "A configurable Ruby LSP integration, with all settings also customisable at a project level",
+    "version": "0.1.0",
+    "repository": "https://github.com/pat/advanced-ruby-lsp.novaextension",
+    "bugs": "https://github.com/pat/advanced-ruby-lsp.novaextension/issues",
+    "license": "MIT",
+    "categories": ["languages"],
+
+    "main": "main.js",
+
+    "activationEvents": [
+        "onLanguage:ruby"
+    ],
+    "entitlements": {
+        "process": true,
+        "filesystem": "readonly"
+    },
+
+    "config": [
+        {
+            "key": "com.freelancing-gods.ruby-lsp.format-on-save",
+            "title": "Format on save",
+            "type": "boolean",
+            "default": true
+        },
+        {
+            "key": "com.freelancing-gods.ruby-lsp.bundler",
+            "title": "Use Bundler",
+            "type": "boolean",
+            "default": true
+        },
+        {
+            "key": "com.freelancing-gods.ruby-lsp.paths",
+            "title": "Additional PATH directories",
+            "description": "Useful if invoking via a version manager",
+            "type": "pathArray",
+            "default": []
+        }
+    ],
+    "configWorkspace": [
+        {
+            "key": "com.freelancing-gods.ruby-lsp.format-on-save",
+            "title": "Format on Save",
+            "type": "enum",
+            "values": [
+                ["global", "Global default"],
+                ["enabled", "Enable"],
+                ["disabled", "Disable"]
+            ],
+            "default": "global"
+        },
+        {
+            "key": "com.freelancing-gods.ruby-lsp.bundler",
+            "title": "Use Bundler",
+            "type": "enum",
+            "values": [
+                ["global", "Global default"],
+                ["enabled", "Enable"],
+                ["disabled", "Disable"]
+            ],
+            "default": "global"
+        },
+        {
+            "key": "com.freelancing-gods.ruby-lsp.paths",
+            "title": "Additional PATH directories",
+            "description": "Additive to the global configuration",
+            "type": "pathArray",
+            "default": []
+        }
+    ],
+    "commands": {
+        "command-palette": [
+            {
+                "title": "Restart Ruby LSP",
+                "command": "restartRubyLSP"
+            }
+        ]
+    }
+}

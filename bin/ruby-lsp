@@ -1,0 +1,14 @@
+#!/bin/bash
+
+set -e
+
+# The ADDITIONAL_PATHS variable will have the trailing separator if it's not
+# an empty string.
+export PATH="$ADDITIONAL_PATHS$PATH"
+
+if [ "$USE_BUNDLER" = "true" ]; then
+  bundle exec ruby-lsp
+else
+  ruby-lsp
+fi
+
